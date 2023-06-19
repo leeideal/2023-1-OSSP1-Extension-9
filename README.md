@@ -10,8 +10,23 @@
 |이상돈|2019112491|산업시스템공학과|<https://github.com/leeideal>|
 |김건형|2018112016|컴퓨터공학과|<https://github.com/devCharlieP>|
 |이종혁|2019112035|컴퓨터공학과|<https://github.com/purple8cloud>|
-|황유경|2020111403|경영학과||
-|민준영|2019113290|컴퓨터공학과||
+|황유경|2020111403|경영학과|<https://github.com/yookyung0825>|
+|민준영|2019113290|컴퓨터공학과|<https://github.com/Junyoung190198>|
+
+
+## 빠른 링크
+
+  - [개요](#개요)
+  - [설명](#설명)
+    - [Simecse](#Simecse)
+    - [BackGround Method](#BackGround-Method)
+  - [요구사항](#요구사항)
+  - [환경 및 언어](#환경-및-언어)
+  - [활용 데이터 셋](#활용-데이터-셋)
+  - [참고 프로젝트](#참고-프로젝트)
+  - [모델 학습 시작하기](#모델-학습-시작하기)
+  - [모델 성능](#모델-성능)
+  - [차후 계획](#차후-계획)
 
 ## 개요
 - 학습 데이터 셋 추가 및 데이터 라벨링 개선
@@ -20,9 +35,22 @@
 - OSR 방법론 변경 (OpenMax → Background Method 적용)
 
 ## 설명
-Simcse 및 BackGround Method 적용을 통한 혐오발언 분류 모델의 성능개선
+Simcse 및 BackGround Method 적용을 통한 혐오발언 분류 모델의 성능개선이 목적이다
+### Simecse
+Unsupervised SimCSE는 입력 문장을 받아 대조 학습 프레임워크에서 표준 드롭아웃만 노이즈로 사용하여 스스로 예측한다
 
-## Requirement
+Supervised SimCSE는 NLI 데이터 세트의 주석이 달린 쌍을 대조 학습에 통합하여 한 쌍을 긍정으로, 한 쌍을 부정으로 사용한다
+
+다음 그림은 이 모델을 보여주는 그림이다
+
+![image](https://github.com/CSID-DGU/2023-1-OSSP1-Extension-9/assets/22547157/d322d154-ae7b-420c-9c9f-35d35752b72d)
+
+### BackGround Method
+작성중
+
+
+
+## 요구사항
 * PyTorch
 * Tensorflow
 * Transformers
@@ -30,34 +58,49 @@ Simcse 및 BackGround Method 적용을 통한 혐오발언 분류 모델의 성�
 * sentencepiece
 
 ## 환경 및 언어
-Colab, Jupyter Notebook
-Python
+* Colab
+* Jupyter Notebook
+* Python
 
 ## 활용 데이터 셋
 기존
-혐오성, 성차별 문장 데이터셋 : <https://github.com/kocohub/korean-hate-speech>
 
-일베 문장 데이터셋 : <https://github.com/2runo/Curse-detection-data>
+korean-hate-speech 데이터셋 : <https://github.com/kocohub/korean-hate-speech>
 
-추가 데이터셋
-<https://github.com/smilegate-ai/korean_unsmile_dataset>
+Curse-detection-data 데이터셋 : <https://github.com/2runo/Curse-detection-data>
+
+추가
+
+korean_unsmile_dataset 데이터셋 : <https://github.com/smilegate-ai/korean_unsmile_dataset>
 
 ## 참고 프로젝트
 기존
+
 <https://github.com/CSID-DGU/2021-1-OSSP1-FloweryPath-8>
 
 Simcse - Supervised
+
 <https://github.com/BM-K/KoSimCSE-SKT>
 
 Simcse - Unsupervised
+
 <https://github.com/bhuvanakundumani/SimCSE_unsupervised>
+
+BackGround Method
+
+<https://github.com/Vastlab/Reducing-Network-Agnostophobia>
 
 ## 모델 학습 시작하기
 1.참고 프로젝트의 Simcse코드를 사용해 KoBert모델을 사전학습하여 모델을 획득
+  
+  사용방법은 해당 페이지에 기록되어 있으므로 여기서 사용방법을 설명하지는 않겠다
 
 2.사전학습이 완료된 모델에 `UnSup_KoBERT_V1`등의 폴더의 코드를 사용해 전이학습하여 분류 모델을 획득
-
+  
 3.`OpenMax`폴더에서 분류 모델에 맞는 코드를 사용해 Fit과정 진행 후 Predict를 사용해 문장 분류
+
+## [모델 성능](https://github.com/CSID-DGU/2023-1-OSSP1-Extension-9/blob/main/new_model/README.md)
+
 
 
 ## 차후 계획
@@ -65,7 +108,7 @@ Simcse - Unsupervised
 
 
 
-## 라이센스
+## 라이선스
 
 ```
 MIT License
